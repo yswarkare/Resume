@@ -1,8 +1,11 @@
-import React, { Component } from "react";
-import MyProject from "../components/MyProject";
+import { Component } from "react";
 import resumeInfo from "../data/resume.data";
 import Resume from "../models/Resume.model";
 import { getMonthDate } from "../utils/convertDate";
+import Certificates from "../views/Certificates/Certificates";
+import MyProject from "../views/MyProject/MyProject";
+import Skills from "../views/Skills/Skills";
+import WorkExperience from "../views/WorkExperience/WorkExperience";
 
 interface Props {}
 interface State {
@@ -105,167 +108,14 @@ class MyResume extends Component<Props, State> {
 								);
 							})}
 						</div>
-						{/* Projects */}
-						<div
-							className={`w-fill my-1 mx-1 flex flex-col justify-start content-start items-start`}
-						>
-							<span className={`w-fill text-left text-10 font-bold `}>
-								{`PROJECTS`}
-							</span>
-							{this.state.resume?.projects?.map((project, index) => {
-								return (
-									<div
-										className={`w-fill my-1 mx-1 flex flex-col justify-start content-start items-start`}
-										key={index}
-									>
-										<span className={`text-10 font-semibold`}>
-											{project?.name}
-										</span>
-										<div
-											className={`w-fill my-1 flex flex-row justify-start content-start items-start`}
-										>
-											{project?.projectLink && (
-												<a
-													className={`link-blue mx-1 text-8`}
-													href={project?.projectLink}
-												>
-													{`Project Link`}
-												</a>
-											)}
-											{project?.githubLink && (
-												<a
-													className={`link-blue mx-1 text-8`}
-													href={project?.githubLink}
-												>
-													{`GitHub Link`}
-												</a>
-											)}
-										</div>
-										<div
-											className={`w-fill my-1 mx-1 flex flex-col justify-start content-start items-start`}
-										>
-											{project?.description?.map((item, index) => {
-												return (
-													<span className={`text-left`} key={index}>
-														{`\u25CF ${item}`}
-													</span>
-												);
-											})}
-										</div>
-									</div>
-								);
-							})}
-						</div>
-						{/* Experience */}
-						<div
-							className={`w-fill my-1 mx-1 flex flex-col justify-start content-start items-start`}
-						>
-							<span className={`w-fill text-left text-10 font-bold `}>
-								{`EXPPERIENCE`}
-							</span>
-							<div
-								className={`w-fill flex flex-col justify-start content-start items-start`}
-							>
-								{this.state.resume.experience?.map((exp, index) => {
-									return (
-										<div
-											className={`w-fill my-1 mx-1 flex flex-col justify-start content-start items-start`}
-											key={index}
-										>
-											<div
-												className={`w-fill flex flex-row justify-start content-start items-start`}
-											>
-												<span className={`mr-2 text-10 font-semibold`}>
-													{`${exp.position}`}
-												</span>
-												<span className={`text-10`}>
-													{`(${getMonthDate(exp.startDate)} - ${
-														getMonthDate(exp?.endDate) === null
-															? "Present"
-															: getMonthDate(exp?.endDate)
-															? getMonthDate(exp.endDate)
-															: ""
-													}) at`}
-												</span>
-											</div>
-											<span className={`text-10`}>
-												{`${exp.company?.name}`}
-											</span>
-											<div
-												className={`w-fill my-1 mx-1 flex flex-col justify-start content-start items-start`}
-											>
-												{exp?.projects?.length > 0 && (
-													<div
-														className={`w-fill my-1 mx-1 flex flex-col justify-start content-start items-start`}
-													>
-														<span
-															className={`w-fill my-1 text-left text-10 font-semibold `}
-														>
-															{`Projects`}
-														</span>
-														{exp?.projects?.map(
-															(project, index) => {
-																return (
-																	<MyProject project={project} key={index}></MyProject>
-																);
-															}
-														)}
-													</div>
-												)}
-											</div>
-										</div>
-									);
-								})}
-							</div>
-						</div>
+						<MyProject projects={this.state.resume.projects} />
+						<WorkExperience experiences={resumeInfo?.experience} />
 					</div>
 					<div
 						className={`w-30/100 mt-4 mx-1 flex flex-col justify-start content-start items-start self-start`}
 					>
-						{/* Skills */}
-						<div
-							className={`w-fill mx-1 my-1 flex flex-col justify-start content-start items-start`}
-						>
-							<div
-								className={`w-fill flex flex-row justify-start content-start items-start`}
-							>
-								<span className={`text-10 font-bold`}>{`SKILLS`}</span>
-							</div>
-							<span className={`w-fill mx-1 my-1 text-left flex flex-wrap`}>
-								{this.state?.resume?.skills?.map((skill, index) => {
-									return (
-										<span className={`text-10 mx-1/2`} key={index}>
-											{`${
-												index + 1 === this.state?.resume?.skills?.length
-													? `${skill}.`
-													: `${skill},`
-											}`}
-										</span>
-									);
-								})}
-							</span>
-						</div>
-						{/* Certificates */}
-						<div
-							className={`w-fill mx-1 my-1 flex flex-col justify-start content-start items-start`}
-						>
-							<div
-								className={`w-fill flex flex-row justify-start content-start items-start`}
-							>
-								<span className={`text-10 font-bold`}>{`CERTIFICATES`}</span>
-							</div>
-							<div
-								className={`w-fill mx-1 my-1 flex flex-col justify-start content-start items-start justify-items-start`}
-							>
-								{this.state?.resume?.certificates?.map((certificate, index) => {
-									return (
-										<span className={`text-10 text-left`} key={index}>
-											{`\u25CF ${certificate}`}
-										</span>
-									);
-								})}
-							</div>
-						</div>
+						<Skills skills={this.state.resume.skills} />
+						<Certificates certificates={this.state.resume.certificates} />
 						{/* Languages */}
 						<div
 							className={`w-fill mx-1 my-1 flex flex-col justify-start content-start items-start`}
