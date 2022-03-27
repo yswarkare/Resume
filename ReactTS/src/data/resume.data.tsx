@@ -171,6 +171,12 @@ const resumeInfo: Resume = {
 			githubLink: `https://github.com/yswarkare/Resume`,
 			description: [`React app to create my resume.`],
 		},
+		{
+			name: `Rock Paper Scissor Game`,
+			projectLinks: [],
+			githubLink: `https://github.com/yswarkare/rock-paper-scissors`,
+			description: [`A react app to play rock-paper-scissor game with computer.`],
+		},
 	],
 };
 
