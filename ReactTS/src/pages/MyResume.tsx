@@ -7,7 +7,7 @@ import MyProject from "../views/MyProject/MyProject";
 import Skills from "../views/Skills/Skills";
 import WorkExperience from "../views/WorkExperience/WorkExperience";
 
-interface Props {}
+interface Props { }
 interface State {
 	resume: Resume;
 }
@@ -98,9 +98,12 @@ class MyResume extends Component<Props, State> {
 										<span className={`text-10 text-left font-semibold`}>
 											{course?.name}
 										</span>
-										<span className={`text-8 text-left`}>
-											{getMonthDate(course?.completionDate)}
-										</span>
+										{
+											course?.completionDate &&
+											<span className={`text-8 text-left`}>
+												{getMonthDate(course.completionDate)}
+											</span>
+										}
 										<span className={`text-9 text-left`}>
 											{course?.institute}
 										</span>
@@ -129,11 +132,10 @@ class MyResume extends Component<Props, State> {
 								{this.state?.resume?.languages?.map((language, index) => {
 									return (
 										<span className={`text-10 mx-1/2`} key={index}>
-											{`${
-												index + 1 === this.state?.resume?.languages?.length
+											{`${index + 1 === this.state?.resume?.languages?.length
 													? `${language}.`
 													: `${language},`
-											}`}
+												}`}
 										</span>
 									);
 								})}
