@@ -1,6 +1,6 @@
 interface Course {
     name: string,
-    completionDate: Date,
+    completionDate?: Date,
     institute: string,
 }
 
