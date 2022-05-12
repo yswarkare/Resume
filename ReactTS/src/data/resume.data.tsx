@@ -8,6 +8,10 @@ const resumeInfo: Resume = {
 	languages: [`English`, `Marathi`, `Hindi`],
 	education: [
 		{
+			name: `S.Y. B.C.A.`,
+			institute: `YCMOU, Maharashtra, India.`,
+		},
+		{
 			name: `Software Engineering`,
 			completionDate: new Date('2021-03-30'),
 			institute: `Full stack web development using MERN, PERN stack at AttainU.`,
@@ -15,8 +19,7 @@ const resumeInfo: Resume = {
 		{
 			name: `B.E. Mechanical Engineering`,
 			completionDate: new Date('2016-07-01'),
-			institute: `Government College of Engineering, Jalgaon,
-            Maharashtra, India.`,
+			institute: `Government College of Engineering, Jalgaon, Maharashtra, India.`,
 		},
 	],
 	profiles: [
@@ -31,28 +34,14 @@ const resumeInfo: Resume = {
 	],
 	skills: [
 		`JavaScript`,
-		`MERN Stack`,
-		`PERN Stack`,
-		`JavaScript(ES5 & ES6)`,
-		`MongoDB`,
-		`PostgreSQL`,
-		`Express.js`,
 		`React.js`,
 		`Next.js`,
-		`Node.js`,
-		`Handlebars`,
-		`Spring-Boot`,
-		`Git`,
-		`JQuery`,
-		`Tailwind`,
 		`Primereact`,
+		`Tailwind`,
+		`Git`,
 	],
 	certificates: [
 		`Full stack web development using MERN, PERN stack, at AttainU.`,
-		`Integrated Course in CAD (Auto CAD, Solidworks, UG-CAD) at Indo-German Tool Room, Aurangabad.`,
-		`Web Designing using Adobe Dreamweaver, at MKCL.`,
-		`DOEACC-CCC (Computer Basics and MS Office).`,
-		`English Typewriting 30.`,
 	],
 	experience: [
 		{
@@ -119,38 +108,6 @@ const resumeInfo: Resume = {
 						`Worked on development of client side and server side apps.`,
 						`Client side app developed by using React.js, Redux, Primereact, Tailwind, PostCSS`,
 						`Serve side app developed by using Spring Boot, MySql.`,
-					],
-				},
-			],
-		},
-		{
-			position: `Full Stack Web Development`,
-			startDate: new Date('2020-08-26'),
-			endDate: new Date('2021-03-26'),
-			company: {
-				name: `AttainU (A unit of Leetu Education Services Pvt. Ltd. Bangalore).`,
-			},
-			description: [],
-			projects: [
-				{
-					name: `Rate N Review`,
-					projectLinks: [{ name: '', link: `https://rating-and-reviews.herokuapp.com` }],
-					githubLink: `https://github.com/attainu/Yogesh-Mayank-Ratings-and-Reviews-au4`,
-					description: [
-						`A place where users could rate and review products.`,
-						`The entire application is built using react-redux, bootstrap, material-UI for the front-end.`,
-						`Back-end was built using Express.js, MongoDB with Mongoose.`,
-						`JWT Auth with Cookies to store jwt token used for sign in the user.`,
-						`Password-Jwt for authenticated routes.`,
-					],
-				},
-				{
-					name: `Career Door`,
-					projectLinks: [{ name: '', link: `http://careerdoors.herokuapp.com/` }],
-					githubLink: `https://github.com/attainu-nightingale/au3_sd_career-door`,
-					description: [
-						`A place where employees could review their employer companies and share their experience.`,
-						`This application was built using Node.js, Express.js, MongoDB, templating engine , Handlebars, Heroku.`,
 					],
 				},
 			],
